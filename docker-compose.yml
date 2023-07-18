@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  potter_gpt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    command: tail -f /dev/null
+    volumes:
+      - ./:/app/
+    ports:
+      - "9999:9999"
+    stop_signal: SIGKILL
